@@ -127,7 +127,7 @@ public class QueryUtils {
 
 
                     JSONArray webTitle = currentResults.getJSONArray("tags");
-                       String author = " ";
+                       String author = "";
                        if(webTitle.length() != 0){
                            JSONObject currenttagsAuthor = webTitle.getJSONObject(0);
                            author = currenttagsAuthor.getString("webTitle");
@@ -139,6 +139,7 @@ public class QueryUtils {
 
                             newsList.add(news);
                         }
+
                     } catch (JSONException e){
                         e.printStackTrace();
                 }

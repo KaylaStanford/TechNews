@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title">
+
+    <ListPreference
+        android:defaultValue="@string/settings_order_by_default"
+        android:entries="@string/settings_order_by"
+        android:entryValues="@array/settings_order_by_values"
+        android:key="@string/settings_order_by_key"
+        android:title="@string/settings_order_by"/>
+
+    <EditTextPreference
+        android:defaultValue="@string/date_default"
+        android:inputType="textNoSuggestions"
+        android:key="@string/date_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/date"
+        android:hint="@string/date_hint" />
+
+
+
+</PreferenceScreen>

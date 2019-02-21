@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">Tech News</string>
+    <string name="app_name">TechNews</string>
+
+    <string name="settings"> Settings </string>
+    <string name="no_internet_connection"> No Internet Connection.</string>
+    <string name="settings_title">Tech Settings</string>
+    <string name="settings_order_by" translatable="false">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">relevant value</string>
+    <string name="relevant" translatable="false">Newest</string>
+    <string name="relevant_value" translatable="false">newest</string>
+    <string name="oldest" translatable="false">Oldest</string>
+    <string name="oldest_value" translatable="false">oldest</string>
+    <string name="date" translatable="false">Date of Publication</string>
+    <string name="date_default" translatable="false">published</string>
+    <string name="date_hint" translatable="false">published or first-publication or last-modified</string>
+    <string name="date_key" translatable="false">use-date</string>
+    <string name="settings_min"> Date </string>
+    <string name="settings_min_key" translatable="false">min_results </string>
+    <string-array name="settings_order_by">
+        <item>@string/relevant</item>
+        <item>@string/oldest</item>
+    </string-array>
+    <string-array name="settings_order_by_values">
+        <item>@string/relevant_value</item>
+        <item>@string/oldest_value</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

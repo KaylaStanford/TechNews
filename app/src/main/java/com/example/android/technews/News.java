@@ -7,14 +7,12 @@ public class News {
     private String webUrl;
     private String author;
 
-    public String REQUEST_URL =
-            "https://content.guardianapis.com/search?q=tech&show-tags=contributor&api-key=fc97d1fd-2093-4623-86a7-6eb1dfd07a09";
-
     public News(String webTitle, String sectionName,  String webPublicationDate, String webUrl, String author ) {
+
         this.webTitle = webTitle;
         this.sectionName = sectionName;
-        this.webUrl = webUrl;
         this.webPublicationDate = webPublicationDate;
+        this.webUrl = webUrl;
         this.author = author;
     }
 

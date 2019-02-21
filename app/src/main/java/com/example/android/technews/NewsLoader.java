@@ -23,11 +23,11 @@ import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
-    public static String REQUEST_URL =
-            "https://content.guardianapis.com/search?q=tech&show-tags=contributor&api-key=fc97d1fd-2093-4623-86a7-6eb1dfd07a09";
+    private String mUrl;
 
-    public NewsLoader(Context context) {
+    public NewsLoader(Context context, String url) {
         super(context);
+        this.mUrl = url;
     }
 
     @Override
@@ -37,10 +37,11 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     @Override
     public List<News> loadInBackground() {
-        if (REQUEST_URL == null) {
+        if (mUrl == null) {
             return null;
         }
-        List<News> newsList = QueryUtils.fetchNewsData(REQUEST_URL);
+
+        List<News> newsList = QueryUtils.fetchNewsData(mUrl);
         return newsList;
     }
 
@@ -58,6 +59,7 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
         return newsList;
     }
+
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
@@ -68,6 +70,7 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
         }
         return url;
     }
+
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
@@ -160,8 +163,7 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
             e.printStackTrace();
         }
 
-        // Return the list of articles
         return newsList;
     }
 
-}
+ }

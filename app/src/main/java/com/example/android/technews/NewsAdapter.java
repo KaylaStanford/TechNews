@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -21,22 +19,18 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
             News news = getItem(position);
 
-            Date dateObject = new Date();
-
-            TextView webTitle = convertView.findViewById(R.id.title_text_view);
-            TextView sectionName = convertView.findViewById(R.id.section_text_view);
-            TextView webPublicationDate = convertView.findViewById(R.id.date_text_view);
-            TextView dateView = convertView.findViewById(R.id.date_text_view);
-            String formattedDate = formatDate(dateObject);
-            dateView.setText(formattedDate);
-            TextView webUrl = convertView.findViewById(R.id.webUrl_text_view);
-            TextView author = convertView.findViewById(R.id.author_text_view);
+            TextView webTitle = listItemView.findViewById(R.id.title_text_view);
+            TextView sectionName = listItemView.findViewById(R.id.section_text_view);
+            TextView webPublicationDate = listItemView.findViewById(R.id.date_text_view);
+            TextView webUrl = listItemView.findViewById(R.id.webUrl_text_view);
+            TextView author = listItemView.findViewById(R.id.author_text_view);
 
 
             webTitle.setText(news.getWebTitle());
@@ -49,16 +43,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
                 author.setText(news.getAuthor());
             }
 
-
-
-
-        return convertView;
+        return listItemView;
    }
-
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
 
    public void setItems(List<News> news) {
         this.clear();
